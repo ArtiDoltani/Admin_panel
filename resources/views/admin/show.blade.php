@@ -89,6 +89,7 @@
                 
                 {{-- ----new-- --}}
                 <div class="container">
+                    {{-- {{URL:: current()}} --}}
                    
                     <table class="table">
                         <thead>

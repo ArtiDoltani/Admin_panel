@@ -1,4 +1,3 @@
-{{-- dashboard --}}
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -37,18 +36,18 @@
                     <nav class="mt-2">
                         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                             <li class="nav-item">
-                                <a href="#" class="nav-link">
+                                <a href="{{route('admin.dashboard')}}" class="nav-link">
                                     <i class="nav-icon fas fa-tachometer-alt"></i>
                                     <p>Dashboard</p>
                                 </a>
                             </li>
-                           {{-- Add book --}}  
-							<li class="nav-item">
-                                <a href="{{route('admin.add')}}" class="nav-link">
+                            
+							{{-- <li class="nav-item">
+                                <a href="{{route('admin.store')}}" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Add Book</p>
                                 </a>
-                            </li>
+                            </li> --}}
                             {{-- Show books list --}}
 							<li class="nav-item">
                                 <a href="{{route('admin.show')}}" class="nav-link">
@@ -71,30 +70,74 @@
                 </div>
                 <!-- /.sidebar -->
             </aside>
+            <!-- Content Wrapper. Contains page content -->
             <div class="content-wrapper">
-                <!-- Main content -->
-                <section class="content  h-100"">
-                    <div class="container-fluid  h-100"">
-                        <!-- Small boxes (Stat box) -->
-                        <div class="row">
-							<div class="col-md-12 welcome-panel text-center">								
-                                <div>
-                                    <h1>Welcome To Admin Panel</h1>
-                                    <p class="card-text">
-                                        Choose options from left panel.
-                                    </p>                                  
-                                </div> 
-							</div>                            
+                <!-- Content Header (Page header) -->
+                <div class="content-header">
+                    <div class="container ">
+                        {{-- Add book --}}
+      
+           {{-- <form action="{{route('admin.add')}}" method="post"> --}}
+            <form action="{{$url}}" method="post">
+           @csrf
+           <h1 class="text-center text-primary">
+          {{$title}}
+           </h1>
+           <div class="form-row">
+             <div class="form-group col-md-6">
+            
+               <label for="inputtitle">Book Title</label>
+               <input type="text" class="form-control" id="" placeholder="Title" name="name"
+                value=  "{{$value->name}}"
+                >
+             </div>
+             <div class="form-group col-md-6">
+               <label for="inputtype">Type</label>
+               <input type="text" class="form-control" id="" placeholder="Type" name="type"
+                value="{{$value->type}}"
+                >
+             </div>
+           </div>
+           <div class="form-group">
+               <label for="inputAuthor">Author</label>
+               <input type="text" class="form-control" id="" placeholder="Author" name="author" 
+               value="{{$value->author}}"
+               >
+             </div>
+           <button type="submit" class="btn btn-primary">{{$title}}</button>
+         </form>
+                   </div>
+                    <div class="container-fluid">
+                        <div class="row mb-2">
+                            <div class="col-sm-6">
+                                {{-- <h1 class="m-0">Books List</h1> --}}
+                            </div>
+                            <!-- /.col -->
+                            {{-- <div class="col-sm-6">
+                                <a href="{{route('admin.store')}}">
+                                    <button type="submit" value="add" class="btn btn-primary "> Add Book</button>
+                                </a>
+                               
+                            </div> --}}
+                            <!-- /.col -->
                         </div>
                         <!-- /.row -->
-                        <!-- /.row (main row) -->
                     </div>
                     <!-- /.container-fluid -->
-                </section>
-                <!-- /.content -->
-            </div>
-           
-      
+                </div>
+                <!-- /.content-header -->
+                <!-- Main content -->
+                
+                {{-- ----new-- --}}
+
+        
+            <!-- Control Sidebar -->
+            <aside class="control-sidebar control-sidebar-dark">
+                <!-- Control sidebar content goes here -->
+            </aside>
+            <!-- /.control-sidebar -->
+        </div>
+        <!-- ./wrapper -->
         
         <script src={{url("frontend/plugins/jquery/jquery.min.js")}}></script>
 
@@ -105,5 +148,3 @@
         <script src={{url("frontend/plugins/summernote/summernote-bs4.min.js")}}></script>
     </body>
 </html>
-                    {{-- try here --}}
-                    

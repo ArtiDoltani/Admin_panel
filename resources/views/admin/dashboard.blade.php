@@ -1,3 +1,4 @@
+{{-- dashboard --}}
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -43,7 +44,7 @@
                             </li>
                            {{-- Add book --}}  
 							<li class="nav-item">
-                                <a href="#" class="nav-link">
+                                <a href="{{route('admin.add')}}" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>Add Book</p>
                                 </a>
@@ -104,3 +105,5 @@
         <script src={{url("frontend/plugins/summernote/summernote-bs4.min.js")}}></script>
     </body>
 </html>
+                    {{-- try here --}}
+                    
